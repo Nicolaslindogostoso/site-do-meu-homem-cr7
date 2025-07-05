@@ -29,7 +29,10 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-text">
-            <h2>Cristiano Ronaldo: O Fenômeno Incomparável</h2>
+            <h2 class="section-title">
+    <span aria-hidden="true" class="animated-letters red-text">Biografia</span>: 
+    <span aria-hidden="true" class="animated-letters white-text">A Jornada de um Campeão</span>
+</h2>
             <p>Mais do que um jogador, uma inspiração. A lenda que redefiniu o futebol.</p>
             <a href="#bio" class="btn-primary">Descubra Mais</a>
         </div>
@@ -87,6 +90,13 @@
     <section id="conquistas" class="achievements-section content-section reveal-on-scroll">
         <div class="container">
             <h2 class="section-title"><span class="red-text">Conquistas</span>: Uma Coleção de Triunfos</h2>
+           <div class="goals-counter-container reveal-on-scroll">
+    <p class="goal-label white-text">Gols na Carreira (Oficiais):</p>
+    <div id="goalCounter" class="goal-number red-text">895</div>
+</div>
+</div>
+    <button id="countGoalsBtn" class="btn-primary">Ver Gols de CR7</button>
+</div>
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <i class="fas fa-trophy icon"></i>
@@ -184,7 +194,7 @@
     <footer class="main-footer">
         <div class="container">
             <p>© 2025 CR7 - A Lenda Viva. Todos os direitos reservados.</p>
-            <p class="local-mention">Criado com paixão em Itararé, SP!</p>
+            <p class="local-mention">Por nicolas santos cardoso fã numero 1 do cr7p>
             <div class="social-links">
                 <a href="https://www.instagram.com/cristiano/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://twitter.com/Cristiano" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -225,5 +235,25 @@
             observer.observe(el);
         });
     </script>
+    <script>
+    // SEU CÓDIGO JAVASCRIPT EXISTENTE AQUI (rolagem suave, reveal-on-scroll, animação de letras)
+
+    // Verifique se o NOVO CÓDIGO DO CONTADOR ESTÁ EXATAMENTE AQUI:
+    const countGoalsBtn = document.getElementById('countGoalsBtn');
+    const goalCounter = document.getElementById('goalCounter');
+    const targetGoals = 930;
+    let currentGoals = 0;
+    let intervalId;
+
+    function startCounting() {
+        // ... (o resto do código da função startCounting) ...
+    }
+
+    countGoalsBtn.addEventListener('click', startCounting);
+    // FIM DO NOVO SCRIPT
+
+</script>
+</body>
+</html>
 </body>
 </html>
