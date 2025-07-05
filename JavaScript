@@ -1,0 +1,68 @@
+// --- NOVO: CÓDIGO PARA O CONTADOR DE GOLS AUTOMÁTICO DO CR7 (Substitua o anterior) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const goalCounter = document.getElementById('goalCounter');
+    const targetGoals = 895; // O total de gols ATUAL do Cristiano Ronaldo
+    let currentGoals = 0;
+    let animationStarted = false; // Flag para garantir que a animação rode apenas uma vez
+
+    // Verifica se o elemento do contador de gols existe no HTML
+    if (!goalCounter) {
+        console.error("Erro: Elemento do contador de gols (#goalCounter) não encontrado no HTML.");
+        return; // Sai da função se o elemento não for encontrado
+    }
+
+    // Função para iniciar a contagem animada
+    function startCountingAnimation() {
+        if (animationStarted) return; // Não inicia se a animação já tiver começado
+        animationStarted = true;
+
+        currentGoals = 0; // Reinicia a contagem para 0
+        goalCounter.textContent = '0'; // Garante que o contador comece do zero na tela
+
+        const animationDuration = 2000; // Duração total da animação em milissegundos (2 segundos)
+        const frameRate = 1000 / 60; // Frequência de atualização (aproximadamente 60 frames por segundo para suavidade)
+        const totalFrames = animationDuration / frameRate; // Número total de "passos" da animação
+        const incrementPerFrame = targetGoals / totalFrames; // Quanto incrementar a cada passo
+
+        let frame = 0;
+
+        const intervalId = setInterval(() => {
+            if (frame < totalFrames) {
+                currentGoals = Math.round(incrementPerFrame * frame); // Arredonda para números inteiros
+                // Garante que o contador não ultrapasse o valor final antes do término da animação
+                if (currentGoals > targetGoals) {
+                    currentGoals = targetGoals;
+                }
+                goalCounter.textContent = currentGoals;
+                frame++;
+            } else {
+                goalCounter.textContent = targetGoals; // Garante que o número final seja exato
+                clearInterval(intervalId); // Para a contagem
+            }
+        }, frameRate);
+    }
+
+    // --- Ativação da Animação ---
+    // Usamos Intersection Observer para iniciar a animação quando a seção de conquistas for visível.
+    // Isso é mais eficiente do que iniciar no carregamento total da página.
+    const achievementsSection = document.getElementById('achievements');
+    if (achievementsSection) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationStarted) {
+                    startCountingAnimation();
+                    observer.unobserve(entry.target); // Para de observar depois que a animação começa
+                }
+            });
+        }, { threshold: 0.5 }); // A animação inicia quando 50% da seção está visível na tela.
+
+        observer.observe(achievementsSection);
+    } else {
+        // Se a seção 'achievements' não for encontrada (erro no HTML), a animação inicia no carregamento da página.
+        console.warn("Seção 'achievements' não encontrada. Contador de gols iniciará no carregamento da página.");
+        startCountingAnimation();
+    }
+});
+
+// --- FIM: CÓDIGO PARA O CONTADOR DE GOLS AUTOMÁTICO DO CR7 ---
