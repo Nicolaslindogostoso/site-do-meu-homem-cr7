@@ -678,3 +678,717 @@ p {
         margin: 0 10px;
     }
 }
+/* Importação de Fontes e Ícones */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Variáveis de Cores - Apenas Vermelho, Branco e Preto */
+:root {
+    --color-primary-red: #E30613; /* Vermelho forte e vibrante */
+    --color-secondary-black: #1A1A1A; /* Preto profundo para fundos */
+    --color-tertiary-white: #FFFFFF; /* Branco puro para texto e elementos */
+    --color-light-gray-text: #CCCCCC; /* Um cinza claro para textos secundários no fundo preto */
+    --color-dark-gray-elements: #333333; /* Um cinza escuro para detalhes em fundos brancos */
+}
+
+/* Reset Básico e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    background-color: var(--color-secondary-black); /* Fundo padrão do site é preto */
+    color: var(--color-tertiary-white); /* Cor padrão do texto é branco */
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary-red);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-tertiary-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800; /* Mais forte para impacto */
+    margin-bottom: 1rem;
+    color: var(--color-tertiary-white); /* Títulos brancos no fundo preto */
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--color-light-gray-text); /* Parágrafos em cinza claro para leitura no preto */
+}
+
+/* Classes para dar ênfase nas cores exatas */
+.red-text {
+    color: var(--color-primary-red);
+}
+
+.white-text {
+    color: var(--color-tertiary-white);
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary-red);
+    color: var(--color-tertiary-white);
+    padding: 14px 30px; /* Um pouco maior */
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    box-shadow: 0 6px 15px rgba(var(--color-primary-red), 0.4); /* Sombra vibrante */
+    border: 2px solid var(--color-primary-red); /* Borda para destaque no hover */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary-black);
+    color: var(--color-primary-red);
+    transform: translateY(-5px); /* Mais destaque no hover */
+    box-shadow: 0 8px 20px rgba(var(--color-primary-red), 0.5);
+}
+
+/* Títulos de Seção */
+.section-title {
+    font-size: 3.5em; /* Títulos maiores */
+    font-weight: 900; /* Super negrito */
+    text-align: center;
+    margin-bottom: 70px; /* Mais espaço */
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--color-secondary-black); /* Títulos pretos nas seções brancas */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 120px; /* Linha maior */
+    height: 6px; /* Linha mais grossa */
+    background-color: var(--color-primary-red);
+    margin: 15px auto 0;
+    border-radius: 3px;
+}
+
+.content-section {
+    padding: 100px 0; /* Mais padding vertical */
+    background-color: var(--color-tertiary-white); /* Fundo das seções branco */
+    margin-bottom: 30px;
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra mais suave para o branco */
+}
+
+/* Animação de Revelar ao Rolar */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(80px); /* Começa de mais baixo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Animação mais suave e lenta */
+}
+
+.reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header Principal */
+.main-header {
+    background-color: var(--color-secondary-black);
+    padding: 25px 0; /* Mais altura */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* Sombra mais intensa */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--color-primary-red); /* Linha vermelha no rodapé */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-header .logo {
+    font-size: 3em; /* Logo maior */
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 40px; /* Mais espaçamento entre os itens */
+}
+
+.main-nav ul li a {
+    color: var(--color-tertiary-white);
+    font-weight: 600;
+    font-size: 1.2em; /* Texto maior */
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Mais abaixo */
+    left: 50%;
+    width: 0;
+    height: 4px; /* Linha mais grossa */
+    background-color: var(--color-primary-red);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-primary-red);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 90vh; /* Ocupa quase toda a tela */
+    background: url('imagens/cr7_hero_bw.jpg') no-repeat center center/cover; /* Imagem de fundo P&B */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-tertiary-white);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.9); /* Sombra mais forte */
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Overlay preto mais opaco */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.hero-text h2 {
+    font-size: 5.5em; /* Título gigante */
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: var(--color-tertiary-white);
+    line-height: 1.1;
+    animation: fadeInDown 1.2s ease-out forwards; /* Animação mais lenta */
+    opacity: 0;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+}
+
+.hero-text p {
+    font-size: 1.8em; /* Parágrafo maior */
+    margin-bottom: 50px;
+    font-weight: 400;
+    color: var(--color-tertiary-white);
+    animation: fadeInUp 1.2s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.hero-text .btn-primary {
+    animation: zoomIn 1.2s ease-out 1.2s forwards;
+    opacity: 0;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-80px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(80px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Seção de Biografia */
+.bio-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Texto um pouco maior, imagem menor */
+    gap: 70px; /* Mais espaço */
+    align-items: center;
+    margin-top: 50px;
+}
+
+.bio-text p {
+    font-size: 1.15em;
+    line-height: 1.9;
+    text-align: justify;
+    color: var(--color-dark-gray-elements); /* Texto preto na seção branca */
+}
+
+.bio-image-wrapper {
+    position: relative;
+    padding: 15px; /* Borda mais grossa */
+    background-color: var(--color-primary-red); /* Borda vermelha */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.bio-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.6s ease; /* Animação mais suave */
+}
+
+.bio-image-wrapper:hover img {
+    transform: scale(1.08); /* Zoom maior */
+}
+
+/* Galeria de Imagens */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Imagens um pouco maiores */
+    gap: 40px; /* Mais espaçamento */
+    margin-top: 50px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    border: 3px solid var(--color-secondary-black); /* Borda preta em volta da imagem */
+    transition: border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--color-primary-red); /* Borda vermelha no hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px; /* Altura maior */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-primary-red), 0.9); /* Overlay vermelho mais opaco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-tertiary-white);
+    font-size: 1.8em; /* Texto maior */
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.15); /* Zoom maior */
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Seção de Conquistas */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.achievement-card {
+    background-color: var(--color-secondary-black); /* Fundo preto */
+    padding: 40px; /* Mais padding */
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    border: 3px solid var(--color-secondary-black);
+}
+
+.achievement-card:hover {
+    transform: translateY(-12px); /* Mais destaque */
+    background-color: var(--color-primary-red); /* Fundo vermelho no hover */
+    box-shadow: 0 12px 25px rgba(var(--color-primary-red), 0.5);
+    border-color: var(--color-tertiary-white); /* Borda branca no hover */
+}
+
+.achievement-card .icon {
+    font-size: 4em; /* Ícones maiores */
+    color: var(--color-primary-red); /* Ícones vermelhos */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    transition: color 0.4s ease;
+}
+
+.achievement-card:hover .icon {
+    color: var(--color-tertiary-white); /* Ícones brancos no hover */
+}
+
+.achievement-card h3 {
+    font-size: 2em; /* Título maior */
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--color-tertiary-white); /* Título branco */
+}
+
+.achievement-card p {
+    font-size: 1.1em; /* Parágrafo maior */
+    color: var(--color-light-gray-text); /* Texto cinza claro */
+}
+
+/* Estilos para o Contador de Gols (AGORA COM TAMANHO MAIOR) */
+.goals-counter-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    padding: 40px;
+    background-color: var(--color-secondary-black);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border: 2px solid var(--color-primary-red);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.goals-counter-container .goal-label {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-light-gray-text);
+}
+
+/* ESTILO ATUALIZADO PARA O NÚMERO DO GOL */
+.goals-counter-container .goal-number {
+    font-size: 6em; /* TAMANHO MAIOR PARA O NÚMERO */
+    font-weight: 900;
+    line-height: 1;
+    color: var(--color-primary-red);
+    text-shadow: 0 0 15px rgba(var(--color-primary-red), 0.7);
+}
+
+
+/* Seção de Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.skill-card {
+    background-color: var(--color-tertiary-white); /* Fundo branco */
+    color: var(--color-secondary-black); /* Texto preto */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    border: 3px solid var(--color-tertiary-white);
+}
+
+.skill-card:hover {
+    background-color: var(--color-primary-red); /* Fundo vermelho no hover */
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(var(--color-primary-red), 0.5);
+    border-color: var(--color-secondary-black); /* Borda preta no hover */
+}
+
+.skill-card .skill-icon {
+    font-size: 4em;
+    color: var(--color-primary-red); /* Ícones vermelhos no fundo branco */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: color 0.4s ease;
+}
+
+.skill-card:hover .skill-icon {
+    color: var(--color-tertiary-white); /* Ícones brancos no hover */
+}
+
+.skill-card h3 {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--color-secondary-black); /* Título preto */
+}
+
+.skill-card:hover h3 {
+    color: var(--color-tertiary-white); /* Título branco no hover */
+}
+
+.skill-card p {
+    font-size: 1.1em;
+    color: var(--color-dark-gray-elements); /* Texto cinza escuro */
+}
+
+.skill-card:hover p {
+    color: var(--color-tertiary-white); /* Texto branco no hover */
+}
+
+/* Seção de Legado */
+.legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.legacy-card {
+    background-color: var(--color-secondary-black); /* Fundo preto */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    border-top: 6px solid var(--color-primary-red); /* Borda superior de destaque vermelha */
+}
+
+.legacy-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(var(--color-primary-red), 0.5);
+    background-color: var(--color-primary-red); /* Fundo vermelho no hover */
+    border-top-color: var(--color-tertiary-white); /* Borda branca no hover */
+}
+
+.legacy-card h3 {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--color-tertiary-white); /* Título branco */
+}
+
+.legacy-card:hover h3 {
+    color: var(--color-secondary-black); /* Título preto no hover */
+}
+
+.legacy-card p {
+    font-size: 1.1em;
+    color: var(--color-light-gray-text); /* Texto cinza claro */
+    text-align: justify;
+}
+
+.legacy-card:hover p {
+    color: var(--color-tertiary-white); /* Texto branco no hover */
+}
+
+.final-message {
+    text-align: center;
+    font-size: 1.4em; /* Mensagem final maior */
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-dark-gray-elements); /* Texto cinza escuro na seção branca */
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid var(--color-light-gray-text);
+}
+
+/* Rodapé Principal */
+.main-footer {
+    background-color: var(--color-secondary-black);
+    color: var(--color-tertiary-white);
+    padding: 40px 0; /* Mais padding */
+    text-align: center;
+    border-top: 3px solid var(--color-primary-red); /* Linha vermelha no topo */
+}
+
+.main-footer p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: var(--color-light-gray-text);
+}
+
+.local-mention {
+    font-size: 0.9em;
+    font-style: italic;
+    color: var(--color-light-gray-text);
+    margin-top: 10px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--color-tertiary-white);
+    font-size: 2.2em; /* Ícones maiores */
+    margin: 0 20px; /* Mais espaçamento */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-primary-red);
+    transform: translateY(-5px) scale(1.1); /* Mais animação */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 3em;
+    }
+    .hero-text h2 {
+        font-size: 4em;
+    }
+    .hero-text p {
+        font-size: 1.5em;
+    }
+    .bio-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 0;
+    }
+    .main-header .logo {
+        font-size: 2.5em;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .main-nav ul li {
+        margin: 5px 10px;
+    }
+    .main-nav ul li a {
+        font-size: 1em;
+    }
+    .hero-section {
+        height: 70vh;
+    }
+    .hero-text h2 {
+        font-size: 3em;
+    }
+    .hero-text p {
+        font-size: 1.2em;
+    }
+    .bio-grid {
+        grid-template-columns: 1fr; /* Coluna única para bio em mobile */
+        gap: 30px;
+    }
+    .bio-image-wrapper {
+        order: -1; /* Coloca a imagem antes do texto no mobile */
+    }
+    .section-title {
+        font-size: 2.5em;
+        margin-bottom: 50px;
+    }
+    .content-section {
+        padding: 60px 0;
+    }
+    .gallery-grid, .achievements-grid, .skills-grid, .legacy-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .gallery-item img {
+        height: 220px;
+    }
+    .achievement-card h3, .skill-card h3, .legacy-card h3 {
+        font-size: 1.8em;
+    }
+    .goals-counter-container .goal-number {
+        font-size: 4em; /* Ajuste para mobile */
+    }
+    .final-message {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .logo {
+        font-size: 2em;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-nav ul li {
+        margin: 5px 0;
+    }
+    .hero-section {
+        height: 60vh;
+    }
+    .hero-text h2 {
+        font-size: 2.2em;
+    }
+    .hero-text p {
+        font-size: 1em;
+    }
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .gallery-grid, .achievements-grid, .skills-grid, .legacy-grid {
+        grid-template-columns: 1fr; /* Coluna única em telas muito pequenas */
+    }
+    .gallery-item img {
+        height: 180px;
+    }
+    .achievement-card, .skill-card, .legacy-card {
+        padding: 30px;
+    }
+    .social-links a {
+        font-size: 1.8em;
+        margin: 0 10px;
+    }
+}
