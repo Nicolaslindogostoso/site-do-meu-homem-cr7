@@ -1392,3 +1392,43 @@ p {
         margin: 0 10px;
     }
 }
+/* --- Seção de Vídeo --- */
+.video-section {
+    background-color: var(--color-secondary-black); /* Fundo preto para a seção */
+}
+
+.video-section .section-title {
+    color: var(--color-tertiary-white); /* Título branco */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção widescreen 16:9 (altura com base na largura) */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--color-primary-red); /* Borda vermelha */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsividade para o vídeo */
+@media (max-width: 768px) {
+    .video-section .section-title {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-section .section-title {
+        font-size: 2em;
+    }
+}
